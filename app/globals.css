@@ -1,0 +1,271 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 255, 0;
+  --background-rgb: 0, 0, 0;
+}
+
+@font-face {
+  font-family: "PixeloidSans";
+  src: url("/fonts/pixeloid-sans.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PixeloidMono";
+  src: url("/fonts/pixeloid-mono.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PressStart2P";
+  src: url("/fonts/press-start-2p.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PixelGaming";
+  src: url("/fonts/pixel-gaming.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PerfectDOS";
+  src: url("/fonts/perfect-dos-vga.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "CyberAlert";
+  src: url("/fonts/cyber-alert.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+  font-family: "CyberAlert", "PixelGaming", monospace;
+  image-rendering: pixelated;
+}
+
+.pixel-font {
+  font-family: "CyberAlert", "PixelGaming", monospace;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 0px #003300;
+}
+
+.pixel-mono {
+  font-family: "PixeloidMono", monospace;
+  letter-spacing: 0px;
+}
+
+.pixel-title {
+  font-family: "CyberAlert", "PixelGaming", monospace;
+  text-shadow: 4px 4px 0px #006600;
+  letter-spacing: 2px;
+  position: relative;
+  display: inline-block;
+  text-transform: uppercase;
+}
+
+.pixel-subtitle {
+  font-family: "CyberAlert", "PixelGaming", monospace;
+  text-shadow: 2px 2px 0px #006600;
+  letter-spacing: 1px;
+  border-bottom: 2px solid #00ff00;
+  padding-bottom: 4px;
+}
+
+.pixel-container {
+  box-shadow: 0 0 15px #00ff00, 0 0 30px #00ff00;
+  position: relative;
+  overflow: hidden;
+}
+
+.pixel-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00ff00, transparent);
+  animation: pixel-scan 2s linear infinite;
+}
+
+.pixel-button {
+  image-rendering: pixelated;
+  transition: all 0.1s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: "CyberAlert", "PixelGaming", monospace;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 5px #00ff00;
+}
+
+.pixel-button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 0, 0.2), transparent);
+  transition: 0.5s;
+}
+
+.pixel-button:hover::after {
+  left: 100%;
+}
+
+.pixel-button:hover {
+  transform: scale(1.05);
+  text-shadow: 0 0 5px #00ff00;
+  box-shadow: 0 0 10px #00ff00, 0 0 15px #00ff00;
+}
+
+.pixel-button:active {
+  transform: scale(0.95);
+}
+
+.pixel-input {
+  background-color: black;
+  border: 2px solid #00ff00;
+  color: #00ff00;
+  padding: 8px;
+  font-family: "CyberAlert", "PixelGaming", monospace;
+}
+
+.pixel-tab {
+  background-color: black;
+  border: 2px solid #00ff00;
+  color: #00ff00;
+  padding: 4px 8px;
+  font-family: "CyberAlert", "PixelGaming", monospace;
+  transition: all 0.1s ease;
+}
+
+.pixel-tab[data-state="active"] {
+  background-color: #00ff00;
+  color: black;
+}
+
+.pixel-canvas {
+  image-rendering: pixelated;
+  image-rendering: crisp_edges;
+}
+
+.color-picker-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.pixel-list-item {
+  position: relative;
+  padding-left: 5px;
+}
+
+.pixel-list-item::before {
+  content: ">";
+  position: absolute;
+  left: -15px;
+  color: #00ff00;
+}
+
+.pixel-dev-credit {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 2px dashed #00aa00;
+  font-family: "CyberAlert", "PixelGaming", monospace;
+  animation: pulse 2s infinite;
+}
+
+.game-grid-background {
+  background-color: rgba(0, 0, 0, 0.5);
+  background-image: linear-gradient(#00ff0022 1px, transparent 1px),
+    linear-gradient(90deg, #00ff0022 1px, transparent 1px);
+  background-size: 20px 20px;
+  backdrop-filter: blur(1px);
+}
+
+.attack-buttons-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 8px;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 2px solid #00ff00;
+  border-top: none;
+}
+
+.attack-button {
+  padding: 8px;
+  font-size: 12px;
+  text-align: center;
+}
+
+.combo-attack-button {
+  grid-column: 1 / -1;
+}
+
+.stats-panel {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 2px solid #00ff00;
+}
+
+.player-stats,
+.enemy-stats {
+  flex: 1;
+}
+
+.turn-indicator {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px 15px;
+  border-radius: 4px;
+  font-weight: bold;
+  z-index: 10;
+  font-family: "CyberAlert", "PixelGaming", monospace;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes pixel-scan {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
