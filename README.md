@@ -1,7 +1,6 @@
 ### Elemento - Pixel Art Elemental Battle Game
 
- a pixel art game with character customization, elemental powers, and combat mechanics using the reference image you provided. Let's build this with a green and black color scheme!
-
+ a pixel art game with character customization, elemental powers, and combat mechanics.
 ```typescriptreact project="elemento-game"
 ...
 ```
